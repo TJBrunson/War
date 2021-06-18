@@ -1,4 +1,4 @@
-from Deck import Deck
+from models.Deck import Deck
 class Card_Pile:
 
     def __init__(self):
@@ -39,8 +39,14 @@ class Card_Pile:
         if vals.count(max(vals)) == 1:
             return self.players[vals.index(max(vals))]
     
+    def move_cards_to_tie_pile(self):
+        self.add_to_tie_pile(self.cards)
+        self.cards = []
+        self.players = []
+    
     def assign_winnings(self, winner):
         winnings = self.cards + self.tie_pile
         winner.add_all_cards(winnings)
         self.cards = []
         self.tie_pile = []
+        self.players = []

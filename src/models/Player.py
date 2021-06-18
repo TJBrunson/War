@@ -1,4 +1,4 @@
-from Card_Pile import Card_Pile
+from models.Card_Pile import Card_Pile
 class Player:
     
     #Currently create with list as hand. Empty list is default
@@ -9,7 +9,7 @@ class Player:
     
     #Returns if hand has any cards in it
     def has_cards(self):
-        return bool(self.hand)
+        return bool(len(self.hand) > 0)
     
     def play_card(self, card_pile):
          card_pile.add_card(self.hand.pop(0), self) # want to pop top card off stack
@@ -26,13 +26,15 @@ class Player:
         
         #do if players hand is greater than three
         if len(self.hand) > 3:
-            card_pile.add_to_tie_pile(self.hand[0:2])
+            card_pile.add_to_tie_pile(self.hand[0:3])
             self.hand = self.hand[3:]
             return True
         
         #add all but last card to tie pile and set hand to last card only
-        card_pile.add_to_tie_pile(self.hand[:-1])
-        self.hand = self.hand[-1]
+        num_cards = len(self.hand)
+        if num_cards > 1:
+            card_pile.add_to_tie_pile(self.hand[:-1])
+            self.hand = self.hand[-1]
         return True
         
     
