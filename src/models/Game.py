@@ -33,13 +33,33 @@ class Game:
                 player.play_card(self.card_pile)
         self.card_pile.show_pile()
         winner = self.card_pile.winner()
+        to_remove = [] # make here because it is needed regardless of if there is a tie
+        
+        #if no winner returned, it means there is a tie
         if not winner:
             for player in self.players:
-                card_pile.
-        print("the winner is: {}".format(winner.name))
+                can_play = player.play_tie_breaker_cards(card_pile)
+                if not can_play: to_remove.append(player)
+            self.remove_players(to_remove) #if tied, remove players who cannot compete in tie breaker
+            self.play_round()
+            return
+        
+        
+        print("{} won this round".format(winner.name))
         self.card_pile.assign_winnings(winner)
+        
+        # After round remove players who run out of cards
         for player in self.players:
-            print("{} has {} cards".format(player.name, len(player.hand)))
+            if not player.has_cards: to_remove.append(player)
+            
+        # remove players that either could not enter tie break or 
+        if len(to_remove) > 0:
+            self.remove_players(to_remove)
 
-game = Game(["Tim", "Emily", "Steve"])
-game.play_round()
+        # if there is only one player left, return the player as the winner
+        if(len(self.players) == 1): return self.players[0]
+
+    #Remove all players in players_to_remove collection
+    def remove_players(self, players_to_remove):
+        for player in players_to_remove:
+            self.players.remove(player)
