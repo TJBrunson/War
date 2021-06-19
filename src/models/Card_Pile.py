@@ -1,8 +1,7 @@
-from models.Deck import Deck
+from models.deck import Deck
 class Card_Pile:
 
     def __init__(self):
-        super().__init__()
         self.cards = []
         self.players = []
         # if there is a high card tie, add tie breaker collection here for payout

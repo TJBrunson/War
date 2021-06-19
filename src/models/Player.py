@@ -1,9 +1,8 @@
-from models.Card_Pile import Card_Pile
+from models.card_pile import Card_Pile
 class Player:
     
     #Currently create with list as hand. Empty list is default
     def __init__(self, name, hand=[]):
-        super().__init__()
         self.name = name
         self.hand = hand
     

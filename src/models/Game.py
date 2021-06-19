@@ -1,11 +1,10 @@
-from models.Player import Player
-from models.Deck import Deck
-from models.Card_Pile import Card_Pile
+from models.player import Player
+from models.deck import Deck
+from models.card_pile import Card_Pile
 
 class Game:
     
     def __init__(self, players):
-        super().__init__()
         self.players = [Player(player, []) for player in players]
         self.card_pile = Card_Pile()
         self.deck = Deck()
