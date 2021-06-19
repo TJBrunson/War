@@ -45,7 +45,7 @@ class Game:
                 if not can_play: to_remove.append(player)
             self.remove_players(to_remove) #if tied, remove players who cannot compete in tie breaker
             self.play_round()
-            return
+            return None
         
         print("{} won this round".format(winner.name))
         self.card_pile.assign_winnings(winner)
@@ -53,14 +53,14 @@ class Game:
         # After round remove players who run out of cards
         for player in self.players:
             print("{} has {} cards left".format(player.name, len(player.hand)))
-            if not len(player.hand) > 0: to_remove.append(player)
+            if len(player.hand) == 0: to_remove.append(player)
             
         # remove players that either could not enter tie break or 
-        if len(to_remove) > 0:
-            self.remove_players(to_remove)
+        self.remove_players(to_remove)
 
         # if there is only one player left, return the player as the winner
         if(len(self.players) == 1): return self.players[0]
+        
 
     #Remove all players in players_to_remove collection
     def remove_players(self, players_to_remove):
