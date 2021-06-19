@@ -34,7 +34,9 @@ class Card_Pile:
             
     def winner(self):
         # Get list of value of each card (not suit) and then convert to list of ranks based on index
-        vals = [Deck.CARD_RANKS.index(val) for val in [card[1]  for card in self.cards]]
+        vals = []
+        for card in self.cards:
+            vals.append(Deck.CARD_RANKS.index(card[1]))
         if vals.count(max(vals)) == 1:
             return self.players[vals.index(max(vals))]
     
