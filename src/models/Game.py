@@ -61,6 +61,8 @@ class Game:
         # if there is only one player left, return the player as the winner
         if(len(self.players) == 1): return self.players[0]
         
+        # By default return none if no player won the game in this round
+        return None
 
     #Remove all players in players_to_remove collection
     def remove_players(self, players_to_remove):
