@@ -14,11 +14,22 @@ class Deck:
         self.cards = []
         for suit in Suits:
             for rank in Deck.CARD_RANKS:
-                self.cards.append([suit, rank])
+                # self.cards.append([suit, rank])
+                self.cards.append(Card(suit, rank))
         
     #shuffle deck using random.shuffle
     def shuffle(self):
         random.shuffle(self.cards)
-        
-deck = Deck()
-print(deck.cards)
+
+
+class Card:
+    
+    def __init__(self, suit, rank):
+        self.suit = suit
+        self.rank = rank
+    
+    def __str__(self):
+        return "{} of {}".format(self.rank, self.suit.value)
+    
+    def rank_value(self):
+        return Deck.CARD_RANKS.index(self.rank)

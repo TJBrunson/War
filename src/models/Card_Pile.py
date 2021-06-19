@@ -30,13 +30,13 @@ class Card_Pile:
         
     def show_pile(self):
         for player, card in zip(self.players, self.cards):
-            print("{} played the {} of {}".format(player.name,card[1], card[0].value))
+            print("{} played the {}".format(player.name, card))
             
     def winner(self):
         # Get list of value of each card (not suit) and then convert to list of ranks based on index
         vals = []
         for card in self.cards:
-            vals.append(Deck.CARD_RANKS.index(card[1]))
+            vals.append(card.rank_value())
         if vals.count(max(vals)) == 1:
             return self.players[vals.index(max(vals))]
     

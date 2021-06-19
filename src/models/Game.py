@@ -10,8 +10,6 @@ class Game:
         self.deck = Deck()
         self.deck.shuffle() # shuffle cards before dealing
         self.deal_cards()
-        for player in self.players:
-            print(player.name, player.hand)
     
     '''
     While total number of cards is greater than number of players,
