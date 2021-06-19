@@ -4,8 +4,8 @@ from models.card_pile import Card_Pile
 
 class Game:
     
-    def __init__(self, players):
-        self.players = [Player(player, []) for player in players]
+    def __init__(self, player_names):
+        self.players = [Player(player_name, []) for player_name in player_names]
         self.card_pile = Card_Pile()
         self.deck = Deck()
         self.deck.shuffle() # shuffle cards before dealing
