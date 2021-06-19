@@ -1,4 +1,5 @@
 from models.card_pile import Card_Pile
+from models.deck import Deck
 class Player:
     
     #Currently create with list as hand. Empty list is default
@@ -33,7 +34,7 @@ class Player:
         num_cards = len(self.hand)
         if num_cards > 1:
             card_pile.add_to_tie_pile(self.hand[:-1])
-            self.hand = self.hand[-1]
+            self.hand = self.hand[-1:]
         return True
         
     
