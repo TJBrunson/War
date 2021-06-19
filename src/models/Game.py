@@ -26,7 +26,6 @@ class Game:
         self.card_pile.add_to_tie_pile(cards)
     
     def play_round(self):
-        print("DRAW!!!")
         for player in self.players:
             if player.has_cards():
                 player.play_card(self.card_pile)
