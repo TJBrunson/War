@@ -30,7 +30,7 @@ class Card_Pile:
         
     def show_pile(self):
         for player, card in zip(self.players, self.cards):
-            print("{} played a {}".format(player.name,card))
+            print("{} played the {}".format(player.name,card))
             
     def winner(self):
         # Get list of value of each card (not suit) and then convert to list of ranks based on index
