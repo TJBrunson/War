@@ -13,13 +13,20 @@
 1. Repeat until not a tie
 7. Announce winner by name
 
-# -- Assumptions --
-1. No more than 3 computers will play against the user
+# -- Assumptions/Corner cases --
+1. No more than 4 players are allowed at a time
 2. All suits are worth the same
 3. If there is a tie and one player doesnt have 4 cards, they bet all but one card and use their
-final card as the tie breaker. If that is still a tie, the player that is out of cards loses becasue he
+final card as the tie breaker. If there is still a tie, the player that is out of cards loses becasue they
 ran out of cards.
-4. If number of players not divisible by 52, add remainder of cards to first winner's pile
-5. If a player cannot play in a tie breaker or runs out of cards, remove them from player pool to shorten loop runs
+4. If number of players not divisible by 52, add remainder of cards in the deck to first winner's pile. This way, the winner of the first round will be awarded the remainder of the deck
+5. If a player cannot play in a tie breaker or runs out of cards, remove them from player pool to shorten loop runs. This is okay because there is no way for them to rejoin the game
 6. The game always has at least 1 player with cards
 7. There are always 52 cards in the game.
+
+# -- With more time I would have... --
+1. implemented a gui to show the player's hands and have a button to start a round
+2. created a mode where users can choose to play solo against up to 3 computers who's names are randomly generated. The user's name in the game would become 'you' in the console logs and gui.
+3. improved the structure of the code into an src/ file structure that worked
+4. moved codes for each class into their own files and put them in a /tests/ directory.
+5. made the card ranks an enum similar to how the Suits enum works.
