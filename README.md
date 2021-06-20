@@ -25,7 +25,7 @@ ran out of cards.
 7. There are always 52 cards in the game.
 
 # -- With more time I would have... --
-1. implemented a gui to show the player's hands and have a button to start a round
+1. implemented a gui to show the player's hands and have a button to start a round. I would have done this with tkiner to stick to a single language.
 2. created a mode where users can choose to play solo against up to 3 computers who's names are randomly generated. The user's name in the game would become 'you' in the console logs and gui.
 3. improved the structure of the code into an src/ file structure that worked
 4. moved codes for each class into their own files and put them in a /tests/ directory.
