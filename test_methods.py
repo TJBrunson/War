@@ -101,3 +101,36 @@ class TestMethods(unittest.TestCase):
         card_pile.assign_winnings(winner)
         self.assertTrue(len(player2.hand) == 4)
         
+    def test_player_tie_breaker(self):
+        
+        ''' When player has less than 4 cards, 
+            make sure player plays 1 less than the number of cards in their hand
+        '''
+        player = Player("p1", [Card(Suits.Clubs, '2'), Card(
+            Suits.Clubs, '3'), Card(Suits.Clubs, '4')])
+        card_pile = Card_Pile()
+        player.play_tie_breaker_cards(card_pile)
+        self.assertTrue(len(player.hand) == 1)
+
+        #Make sure player puts 3 cards in the tie pile if they have more than 3 cards
+        player.hand = [Card(Suits.Clubs, '2'), Card(
+            Suits.Clubs, '3'), Card(Suits.Clubs, '4'), Card(Suits.Clubs, '5'), Card(
+            Suits.Clubs, '6'), Card(Suits.Clubs, '7'), Card(Suits.Clubs, '8'), Card(
+            Suits.Clubs, '9'), Card(Suits.Clubs, '10')]
+        card_pile = Card_Pile()
+        player.play_tie_breaker_cards(card_pile)
+        self.assertTrue(len(player.hand) == 6)
+        
+    def test_player_play_card(self):
+        player = Player('p1', [Card(Suits.Clubs, '2'), Card(
+            Suits.Clubs, '3'), Card(Suits.Clubs, '4'), Card(Suits.Clubs, '5')])
+        card_pile = Card_Pile()
+        player.play_card(card_pile)
+        
+        '''
+        Make sure player hand shrinks by one and card pile contains the last top card that was in the 
+        players hand
+        '''
+        self.assertTrue(len(player.hand) == 3)
+        self.assertTrue(card_pile.cards[0].suit == Suits.Clubs 
+                        and card_pile.cards[0].rank == '2')
