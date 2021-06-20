@@ -1,6 +1,6 @@
-from models.player import Player
-from models.deck import Deck
-from models.card_pile import Card_Pile
+from player import Player
+from deck import Deck
+from card_pile import Card_Pile
 
 class Game:
     
@@ -61,8 +61,8 @@ class Game:
         # By default return none if no player won the game in this round
         return None
 
-    #Remove all players in players_to_remove collection
-    def remove_players(self, players_to_remove):
-        for player in players_to_remove:
+    #Remove all players in to_remove list of player instances
+    def remove_players(self, to_remove):
+        for player in to_remove:
             print("{} ran out of cards and is out of the game!".format(player.name))
             self.players.remove(player)

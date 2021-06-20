@@ -1,12 +1,11 @@
 # War
 
 ### -- Requirements --
-1. choose number of opponents (maximum 3)
-2. shuffle deck of cards, and split between number of players
-3. user types 'draw' to start a round which pops card from each player
+1. choose number of players (maximum 4)
+2. shuffle deck of cards, and deal to players
 4. cards are compared
-5. return which player wins and add cards to the bottom of their deck
-6. on draw, all players put down 3 cards or 1 - cards left in hand
+5. return which player wins and add cards to the bottom of their hand
+6. on tie, all players put down 3 cards or 1 - cards left in hand
     1. repeat until not a tie
 7. announce winner by name
 
@@ -18,8 +17,3 @@ final card as the tie breaker. If that is still a tie, the player that is out of
 ran out of cards.
 4. If number of players not divisible by 52, add remainder of cards to first winner's pile
 5. If a player cannot play in a tie breaker or runs out of cards, remove them from player pool to shorten loop runs
-
-### -- Tests --
-1. Check that deck builds correctly
-2. Check that after dealing, each player has the same number of cards
-    1. Check that left over cards are added to tie_pile

@@ -1,4 +1,4 @@
-from models.deck import Deck
+from deck import Deck
 class Card_Pile:
 
     def __init__(self):

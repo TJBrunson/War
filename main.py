@@ -1,5 +1,5 @@
 import sys
-from models.game import Game
+from game import Game
 #Function to ask user for number of players
 def get_num_of_players():
     counter = 0

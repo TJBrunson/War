@@ -1,5 +1,5 @@
-from models.card_pile import Card_Pile
-from models.deck import Deck
+from card_pile import Card_Pile
+from deck import Deck
 class Player:
     
     #Currently create with list as hand. Empty list is default

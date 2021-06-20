@@ -1,5 +1,5 @@
-from models.game import Game
-from models.player import Player
+from game import Game
+from player import Player
 
 game = Game(["Tim", "Emily", "Ed"])
 
