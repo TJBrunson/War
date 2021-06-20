@@ -18,7 +18,7 @@ class Card_Pile:
     # prints who played what
     def show_card_pile(self):
         for player, card in zip(self.players, self.cards):
-            print('{} played {}'.format( player.name, card))
+            print('{} played {}'.format( player.name, card)) # card picks up __str__ from card class for second input
 
     '''
     Players place 3 cards here when there is a tie for tie breaker round.

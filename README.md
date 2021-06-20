@@ -17,3 +17,5 @@ final card as the tie breaker. If that is still a tie, the player that is out of
 ran out of cards.
 4. If number of players not divisible by 52, add remainder of cards to first winner's pile
 5. If a player cannot play in a tie breaker or runs out of cards, remove them from player pool to shorten loop runs
+6. the game always has at least 1 player with cards
+7. there are always 52 cards in the game.
