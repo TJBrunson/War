@@ -1,8 +1,10 @@
 # War
+## Python version: 3.9.0
 
 # -- Usage --
-1. main_algorithm.py will run the game algorithmically with 3 players.
-2. main.py allows users to choose the number of players and a name for each player. Users also hit enter to play a round.
+1. '''python main_algorithm.py''' will run the game algorithmically with 3 players.
+2. '''python main.py''' allows users to choose the number of players and a name for each player. Users also hit enter to play a round.
+3. '''python -m unittest test_methods.py''' runs the tests for this project
 
 # -- Requirements --
 1. Choose number of players(maximum 4)
