@@ -18,38 +18,41 @@ def get_num_of_players():
             print("Try entering a number less than 5...")
     return None
 
+def main():
+    print("Welcome to the card game War!")
 
-print("Welcome to the card game War!")
-
-# Figure out how many players the user wants
-print("How many players are there? (max 4)")
-num_of_players = get_num_of_players()
-if num_of_players is None:
-    print("You have to enter a number under 5 to start the game!")
-    sys.exit()
-
-
-# Choose name for each player
-player_names = []
-for num in range(num_of_players):
-    print("Enter a name for player {}...".format(num + 1))
-    name = input()
-    if(name is None or name == '' or len(name) > 40):
-        player_names.append("Player {}".format(num + 1))
-    elif name in player_names:
-        print("That name is already in use! try again...")
-        num -= 1
-    else:
-        player_names.append(name)
+    # Figure out how many players the user wants
+    print("How many players are there? (max 4)")
+    num_of_players = get_num_of_players()
+    if num_of_players is None:
+        print("You have to enter a number under 5 to start the game!")
+        sys.exit()
 
 
-# create game with players
-game = Game(player_names)
+    # Choose name for each player
+    player_names = []
+    for num in range(num_of_players):
+        print("Enter a name for player {}...".format(num + 1))
+        name = input()
+        if(name is None or name == '' or len(name) > 40):
+            player_names.append("Player {}".format(num + 1))
+        elif name in player_names:
+            print("That name is already in use! try again...")
+            num -= 1
+        else:
+            player_names.append(name)
 
-winner = None
 
-while winner is None:
-    print()
-    input("Press Enter to play a round...")
-    print()
-    winner = game.play_round()
+    # create game with players
+    game = Game(player_names)
+
+    winner = None
+
+    while winner is None:
+        print()
+        input("Press Enter to play a round...")
+        print()
+        winner = game.play_round()
+
+if __name__ == "__main__":
+    main()
